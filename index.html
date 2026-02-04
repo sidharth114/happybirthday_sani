@@ -5,15 +5,15 @@
     <title>Happy Birthday ❤️</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onclick="enableMusic()">
 
-<audio autoplay loop>
+<audio id="bg-music" autoplay muted loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
     <h1 class="glow">🎉 Happy Birthday 🎉</h1>
-    <h2>To My dera sani 💖</h2>
+    <h2>To My dear Sani 💖</h2>
 
     <p class="message">
         May your day be filled with smiles, love, and unforgettable moments.
@@ -21,15 +21,24 @@
     </p>
 
     <div class="gallery">
-        <img src="photos/photo1.jpg">
-        <img src="photos/photo2.jpg">
-        <img src="photos/photo3.jpg">
+        <img src="assets/images/sani_image_1.jpeg">
+	<img src="assets/images/sani_image_2.jpeg">
+	<img src="assets/images/sani_image_3.jpeg">
+        
     </div>
 
     <button onclick="showSurprise()">🎁 Click for Surprise</button>
-
     <p id="surprise"></p>
 </div>
+
+<script>
+function enableMusic() {
+    const music = document.getElementById("bg-music");
+    music.muted = false;
+    music.play();
+    document.body.onclick = null; 
+}
+</script>
 
 <script src="script.js"></script>
 </body>
