@@ -2,33 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday ❤️</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
+<!-- Video Popup Modal -->
+<div id="video-modal" class="video-modal">
+    <div class="video-modal-content">
+        <span class="close-btn" onclick="closeVideoPopup()">✖</span>
+
+        <video id="birthday-video" controls playsinline preload="metadata">
+            <source src="assets/videos/sani_birthday_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
+
+
 <body onclick="enableMusic()">
 
+<!-- Background Music -->
 <audio id="bg-music" autoplay muted loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
+<!-- Floating Music Hint -->
+<div class="music-hint">🎵 Tap anywhere to play music</div>
+
 <div class="container">
     <h1 class="glow">🎉 Happy Birthday 🎉</h1>
-    <h2>To My dear Sani 💖</h2>
+    <h2 class="subtitle">To My Dear Sani 💖</h2>
 
     <p class="message">
         May your day be filled with smiles, love, and unforgettable moments.
         You deserve all the happiness in the world 🌍✨
     </p>
 
+    <!-- Photo Gallery -->
     <div class="gallery">
-        <img src="assets/images/sani_image_1.jpeg">
-	<img src="assets/images/sani_image_2.jpeg">
-	<img src="assets/images/sani_image_3.jpeg">
-        
+        <img src="assets/images/sani_image_1.jpeg" alt="Sani memory 1">
+        <img src="assets/images/sani_image_2.jpeg" alt="Sani memory 2">
+        <img src="assets/images/sani_image_3.jpeg" alt="Sani memory 3">
     </div>
 
     <button onclick="showSurprise()">🎁 Click for Surprise</button>
-    <p id="surprise"></p>
+    <p id="surprise" class="surprise-text"></p>
+
+    <button onclick="openVideoPopup()">🎥 Watch a Special Message</button>
+
 </div>
 
 <script>
@@ -36,7 +61,10 @@ function enableMusic() {
     const music = document.getElementById("bg-music");
     music.muted = false;
     music.play();
-    document.body.onclick = null; 
+    document.body.onclick = null;
+
+    const hint = document.querySelector(".music-hint");
+    if (hint) hint.style.display = "none";
 }
 </script>
 
